@@ -37,6 +37,12 @@ import javax.sql.DataSource;
  *
  * @since 1.4 (mostly extracted from QueryRunner)
  */
+/**
+ * 实现runner的类有两类：同步和异步
+ * 
+ * @author Administrator
+ *
+ */
 public abstract class AbstractQueryRunner
 {
 
