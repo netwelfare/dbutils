@@ -35,29 +35,26 @@ import java.sql.Statement;
  * @see java.lang.reflect.InvocationHandler
  */
 // 涉及到代理，有什么作用呢？
-public class ProxyFactory
-{
+public class ProxyFactory {
 
 	/**
 	 * The Singleton instance of this class.
 	 */
-	private static final ProxyFactory instance = new ProxyFactory();
+	private static final ProxyFactory instance = new ProxyFactory();// 线程安全，那就是一定加载就生成类的
 
 	/**
 	 * Returns the Singleton instance of this class.
 	 *
 	 * @return singleton instance
 	 */
-	public static ProxyFactory instance()
-	{
+	public static ProxyFactory instance() {
 		return instance;
 	}
 
 	/**
 	 * Protected constructor for ProxyFactory subclasses to use.
 	 */
-	protected ProxyFactory()
-	{
+	protected ProxyFactory() {
 		super();
 	}
 
@@ -73,10 +70,10 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied object 代理是抛弃了对象的概念吗？随意生成了一个类呢？
 	 */
-	public <T> T newProxyInstance(Class<T> type, InvocationHandler handler)
-	{
-		return type.cast(Proxy.newProxyInstance(handler.getClass().getClassLoader(), new Class<?>[]
-		{ type }, handler));
+	public <T> T newProxyInstance(Class<T> type, InvocationHandler handler) {// 祈祷，这是一个接口
+		return type.cast(
+				Proxy.newProxyInstance(handler.getClass().getClassLoader(),
+						new Class<?>[]{type}, handler));
 	}
 
 	/**
@@ -86,8 +83,8 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied CallableStatement
 	 */
-	public CallableStatement createCallableStatement(InvocationHandler handler)
-	{
+	public CallableStatement createCallableStatement(
+			InvocationHandler handler) {
 		return newProxyInstance(CallableStatement.class, handler);
 	}
 
@@ -98,8 +95,7 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied Connection
 	 */
-	public Connection createConnection(InvocationHandler handler)
-	{
+	public Connection createConnection(InvocationHandler handler) {
 		return newProxyInstance(Connection.class, handler);
 	}
 
@@ -110,8 +106,7 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied Driver
 	 */
-	public Driver createDriver(InvocationHandler handler)
-	{
+	public Driver createDriver(InvocationHandler handler) {
 		return newProxyInstance(Driver.class, handler);
 	}
 
@@ -122,8 +117,8 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied PreparedStatement
 	 */
-	public PreparedStatement createPreparedStatement(InvocationHandler handler)
-	{
+	public PreparedStatement createPreparedStatement(
+			InvocationHandler handler) {
 		return newProxyInstance(PreparedStatement.class, handler);
 	}
 
@@ -134,8 +129,7 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied ResultSet
 	 */
-	public ResultSet createResultSet(InvocationHandler handler)
-	{
+	public ResultSet createResultSet(InvocationHandler handler) {
 		return newProxyInstance(ResultSet.class, handler);
 	}
 
@@ -146,8 +140,8 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied ResultSetMetaData
 	 */
-	public ResultSetMetaData createResultSetMetaData(InvocationHandler handler)
-	{
+	public ResultSetMetaData createResultSetMetaData(
+			InvocationHandler handler) {
 		return newProxyInstance(ResultSetMetaData.class, handler);
 	}
 
@@ -158,8 +152,7 @@ public class ProxyFactory
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied Statement
 	 */
-	public Statement createStatement(InvocationHandler handler)
-	{
+	public Statement createStatement(InvocationHandler handler) {
 		return newProxyInstance(Statement.class, handler);
 	}
 
