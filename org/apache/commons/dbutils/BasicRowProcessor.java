@@ -31,7 +31,7 @@ import java.util.Map;
  * <p>
  * This class is thread-safe.
  * </p>
- *
+ * 类非常重要，可以使用内部定义的转换器，也可以使用外面传进入的转换器，主要是继承BeanProcessor类
  * @see RowProcessor
  */
 public class BasicRowProcessor implements RowProcessor
@@ -46,7 +46,7 @@ public class BasicRowProcessor implements RowProcessor
 	/**
 	 * The Singleton instance of this class.
 	 */
-	private static final BasicRowProcessor instance = new BasicRowProcessor();
+	//private static final BasicRowProcessor instance = new BasicRowProcessor();
 
 	/**
 	 * Returns the Singleton instance of this class.
@@ -55,11 +55,11 @@ public class BasicRowProcessor implements RowProcessor
 	 * @deprecated Create instances with the constructors instead. This will be
 	 *             removed after DbUtils 1.1.
 	 */
-	@Deprecated
-	public static BasicRowProcessor instance()
+	
+	/*public static BasicRowProcessor instance()
 	{
 		return instance;
-	}
+	}*/
 
 	/**
 	 * Use this to process beans.
@@ -73,6 +73,7 @@ public class BasicRowProcessor implements RowProcessor
 	public BasicRowProcessor()
 	{
 		this(defaultConvert);
+		System.err.println(defaultConvert.toString());
 	}
 
 	/**

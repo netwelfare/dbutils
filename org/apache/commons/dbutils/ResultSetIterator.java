@@ -31,6 +31,8 @@ import java.util.Iterator;
  * This implementation requires the <code>ResultSet.isLast()</code> method to be
  * implemented.
  * </p>
+ * 
+ * 真正的java应该改造普通的类，这才是最根本的。而这种改造是非常小的，方向非常明确的
  */
 public class ResultSetIterator implements Iterator<Object[]> {
 
@@ -140,6 +142,7 @@ public class ResultSetIterator implements Iterator<Object[]> {
 	 * @param rs
 	 *            Wrap this <code>ResultSet</code> in an <code>Iterator</code>.
 	 * @return an <code>Iterable</code>, suitable for use in for-each loops.
+	 * 被人调用的方法
 	 */
 	public static Iterable<Object[]> iterable(final ResultSet rs) {
 		return new Iterable<Object[]>() {

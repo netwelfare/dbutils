@@ -32,9 +32,8 @@ import java.util.Map;
 
 /**
  * 首先定义接口，函数的名字不错
- * 
  * @author Administrator
- *
+ * 接口的目的是将一行数据进行转型，而这一行数据是通过ResultSet来表示的：数组对象，bean，bean list，map。其实，ResultSet可以表示多行数据
  */
 public interface RowProcessor
 {

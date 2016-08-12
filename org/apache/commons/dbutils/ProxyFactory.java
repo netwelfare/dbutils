@@ -34,7 +34,6 @@ import java.sql.Statement;
  * @see java.lang.reflect.Proxy
  * @see java.lang.reflect.InvocationHandler
  */
-// 涉及到代理，有什么作用呢？
 public class ProxyFactory {
 
 	/**

@@ -5,13 +5,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.apache.commons.dbutils.AsyncQueryRunner;
+import org.apache.commons.dbutils.BasicRowProcessor;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 public class Test {
 
 	public static void main(String[] args) throws Exception {
-		Connection conn = JDBCTools.getConnection();
+		/*Connection conn = JDBCTools.getConnection();
 		System.out.println(conn);
 		BeanListHandler<IniBean> h = new BeanListHandler<IniBean>(
 				IniBean.class);
@@ -25,7 +26,11 @@ public class Test {
 		Future<List<IniBean>> temp = asyncRun.query(conn, sql, h);
 
 		BeanListHandler h2 = new BeanListHandler(IniBean.class);
-		Future<IniBean> temp2 = asyncRun.<IniBean> query(conn, sql, h2);
+		Future<IniBean> temp2 = asyncRun.<IniBean> query(conn, sql, h2);*/
+	  
+	  BasicRowProcessor basicProcessor1 = new BasicRowProcessor();
+	  BasicRowProcessor basicProcessor2 = new BasicRowProcessor();
+	  BasicRowProcessor basicProcessor3 = new BasicRowProcessor();
 
 	}
 

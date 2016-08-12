@@ -48,6 +48,7 @@ import java.util.Map;
  * @see BasicRowProcessor
  *
  * @since DbUtils 1.1
+ * 此类可以传入：columnToPropertyOverrides，可定制化非常强
  */
 public class BeanProcessor {
 
@@ -217,6 +218,7 @@ public class BeanProcessor {
 	 * @return An initialized object.
 	 * @throws SQLException
 	 *             if a database error occurs.
+	 * 完全私有的方法
 	 */
 	private <T> T createBean(ResultSet rs, Class<T> type,
 			PropertyDescriptor[] props, int[] columnToProperty)
@@ -225,11 +227,9 @@ public class BeanProcessor {
 		T bean = this.newInstance(type);
 
 		for (int i = 1; i < columnToProperty.length; i++) {
-
 			if (columnToProperty[i] == PROPERTY_NOT_FOUND) {
 				continue;
 			}
-
 			PropertyDescriptor prop = props[columnToProperty[i]];
 			Class<?> propType = prop.getPropertyType();
 
@@ -260,6 +260,7 @@ public class BeanProcessor {
 	 *            The value to pass into the setter.
 	 * @throws SQLException
 	 *             if an error occurs setting the property.
+	 * 这种方法完全私有，比较不错
 	 */
 	private void callSetter(Object target, PropertyDescriptor prop,
 			Object value) throws SQLException {
@@ -377,6 +378,7 @@ public class BeanProcessor {
 	 * @return A newly created object of the Class.
 	 * @throws SQLException
 	 *             if creation failed.
+	 * 子类可以调用这个方法
 	 */
 	protected <T> T newInstance(Class<T> c) throws SQLException {
 		try {
@@ -400,6 +402,7 @@ public class BeanProcessor {
 	 * @return A PropertyDescriptor[] describing the Class.
 	 * @throws SQLException
 	 *             if introspection failed.
+	 * 私有方法，没有什么可以学的
 	 */
 	private PropertyDescriptor[] propertyDescriptors(Class<?> c)
 			throws SQLException {
@@ -435,6 +438,7 @@ public class BeanProcessor {
 	 *
 	 * @return An int[] with column index to property index mappings. The 0th
 	 *         element is meaningless because JDBC column indexing starts at 1.
+	 * 子类可以调用它
 	 */
 	protected int[] mapColumnsToProperties(ResultSetMetaData rsmd,
 			PropertyDescriptor[] props) throws SQLException {
