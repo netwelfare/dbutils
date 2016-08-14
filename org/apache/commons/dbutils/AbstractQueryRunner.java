@@ -58,15 +58,15 @@ public abstract class AbstractQueryRunner
 	 * @deprecated Access to this field should be through
 	 *             {@link #getDataSource()}.
 	 */
-	@Deprecated
-	protected final DataSource ds;
+	/*@Deprecated
+	protected final DataSource ds;*/
 
 	/**
 	 * Default constructor, sets pmdKnownBroken to false and ds to null.
 	 */
 	public AbstractQueryRunner()
 	{
-		ds = null;
+		//ds = null;
 	}
 
 	/**
@@ -82,7 +82,7 @@ public abstract class AbstractQueryRunner
 	public AbstractQueryRunner(boolean pmdKnownBroken)
 	{
 		this.pmdKnownBroken = pmdKnownBroken;
-		ds = null;
+		//ds = null;
 	}
 
 	/**
@@ -95,7 +95,7 @@ public abstract class AbstractQueryRunner
 	 */
 	public AbstractQueryRunner(DataSource ds)
 	{
-		this.ds = ds;
+		//this.ds = ds;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public abstract class AbstractQueryRunner
 	public AbstractQueryRunner(DataSource ds, boolean pmdKnownBroken)
 	{
 		this.pmdKnownBroken = pmdKnownBroken;
-		this.ds = ds;
+		//this.ds = ds;
 	}
 
 	/**
@@ -128,7 +128,8 @@ public abstract class AbstractQueryRunner
 	 */
 	public DataSource getDataSource()
 	{
-		return this.ds;
+		//return this.ds;
+	  return null;
 	}
 
 	/**

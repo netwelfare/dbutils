@@ -224,12 +224,12 @@ public class QueryRunner extends AbstractQueryRunner
 	 * @deprecated Use
 	 *             {@link #query(Connection, String, ResultSetHandler, Object...)}
 	 */
-	@Deprecated
+	/*@Deprecated
 	public <T> T query(Connection conn, String sql, Object param, ResultSetHandler<T> rsh) throws SQLException
 	{
 		return this.<T> query(conn, false, sql, rsh, new Object[]
 		{ param });
-	}
+	}*/
 
 	/**
 	 * Execute an SQL SELECT query with replacement parameters. The caller is
@@ -252,11 +252,11 @@ public class QueryRunner extends AbstractQueryRunner
 	 *             {@link #query(Connection,String,ResultSetHandler,Object...)}
 	 *             instead
 	 */
-	@Deprecated
+	/*@Deprecated
 	public <T> T query(Connection conn, String sql, Object[] params, ResultSetHandler<T> rsh) throws SQLException
 	{
 		return this.<T> query(conn, false, sql, rsh, params);
-	}
+	}*/
 
 	/**
 	 * Execute an SQL SELECT query with replacement parameters. The caller is
@@ -322,14 +322,14 @@ public class QueryRunner extends AbstractQueryRunner
 	 *             if a database access error occurs
 	 * @deprecated Use {@link #query(String, ResultSetHandler, Object...)}
 	 */
-	@Deprecated
+	/*@Deprecated
 	public <T> T query(String sql, Object param, ResultSetHandler<T> rsh) throws SQLException
 	{
 		Connection conn = this.prepareConnection();
 
 		return this.<T> query(conn, true, sql, rsh, new Object[]
 		{ param });
-	}
+	}*/
 
 	/**
 	 * Executes the given SELECT SQL query and returns a result object. The
@@ -353,13 +353,13 @@ public class QueryRunner extends AbstractQueryRunner
 	 *             if a database access error occurs
 	 * @deprecated Use {@link #query(String, ResultSetHandler, Object...)}
 	 */
-	@Deprecated
+	/*@Deprecated
 	public <T> T query(String sql, Object[] params, ResultSetHandler<T> rsh) throws SQLException
 	{
 		Connection conn = this.prepareConnection();
 
 		return this.<T> query(conn, true, sql, rsh, params);
-	}
+	}*/
 
 	/**
 	 * Executes the given SELECT SQL query and returns a result object. The

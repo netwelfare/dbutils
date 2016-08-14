@@ -55,9 +55,9 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
      *
      * @param executorService the {@code ExecutorService} instance used to run JDBC invocations concurrently.
      */
-    public AsyncQueryRunner(ExecutorService executorService) {
-        this(null, false, executorService);
-    }
+    /*public AsyncQueryRunner(ExecutorService executorService) {
+        //this(null, false, executorService);
+    }*/
 
     /**
      * @deprecated Use {@link #AsyncQueryRunner(ExecutorService, QueryRunner)} instead.
@@ -68,10 +68,10 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
      * and if it breaks, we'll remember not to use it again.
      * @param executorService the {@code ExecutorService} instance used to run JDBC invocations concurrently.
      */
-    @Deprecated
+   /* @Deprecated
     public AsyncQueryRunner(boolean pmdKnownBroken, ExecutorService executorService) {
         this(null, pmdKnownBroken, executorService);
-    }
+    }*/
 
     /**
      * @deprecated Use {@link #AsyncQueryRunner(ExecutorService, QueryRunner)} instead.
@@ -83,10 +83,10 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
      * @param ds The <code>DataSource</code> to retrieve connections from.
      * @param executorService the {@code ExecutorService} instance used to run JDBC invocations concurrently.
      */
-    @Deprecated
+   /*@Deprecated
     public AsyncQueryRunner(DataSource ds, ExecutorService executorService) {
         this(ds, false, executorService);
-    }
+    }*/
 
     /**
      * @deprecated Use {@link #AsyncQueryRunner(ExecutorService, QueryRunner)} instead.
@@ -100,18 +100,18 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
      * and if it breaks, we'll remember not to use it again.
      * @param executorService the {@code ExecutorService} instance used to run JDBC invocations concurrently.
      */
-    @Deprecated
+    /*@Deprecated
     public AsyncQueryRunner(DataSource ds, boolean pmdKnownBroken, ExecutorService executorService) {
         super(ds, pmdKnownBroken);
         this.executorService = executorService;
         this.queryRunner = new QueryRunner(ds, pmdKnownBroken);
-    }
+    }*/
 
     /**
      * @deprecated No longer used by this class. Will be removed in a future version.
      * Class that encapsulates the continuation for batch calls.
      */
-    @Deprecated
+   /* @Deprecated
     protected class BatchCallableStatement implements Callable<int[]> {
         private final String sql;
         private final Object[][] params;
@@ -119,7 +119,7 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
         private final boolean closeConn;
         private final PreparedStatement ps;
 
-        /**
+        *//**
          * Creates a new BatchCallableStatement instance.
          *
          * @param sql The SQL statement to execute.
@@ -128,7 +128,7 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
          * @param conn The connection to use for the batch call.
          * @param closeConn True if the connection should be closed, false otherwise.
          * @param ps The {@link PreparedStatement} to be executed.
-         */
+         *//*
         public BatchCallableStatement(String sql, Object[][] params, Connection conn, boolean closeConn, PreparedStatement ps) {
             this.sql = sql;
             this.params = params.clone();
@@ -137,13 +137,13 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
             this.ps = ps;
         }
 
-        /**
+        *//**
          * The actual call to executeBatch.
          *
          * @return an array of update counts containing one element for each command in the batch.
          * @throws SQLException if a database access error occurs or one of the commands sent to the database fails.
          * @see PreparedStatement#executeBatch()
-         */
+         *//*
         @Override
         public int[] call() throws SQLException {
             int[] ret = null;
@@ -161,7 +161,7 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
 
             return ret;
         }
-    }
+    }*/
 
     /**
      * Execute a batch of SQL INSERT, UPDATE, or DELETE queries.
@@ -369,7 +369,7 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
      * @deprecated No longer used by this class. Will be removed in a future version.
      * Class that encapsulates the continuation for update calls.
      */
-    @Deprecated
+   /* @Deprecated
     protected class UpdateCallableStatement implements Callable<Integer> {
         private final String sql;
         private final Object[] params;
@@ -377,7 +377,7 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
         private final boolean closeConn;
         private final PreparedStatement ps;
 
-        /**
+        *//**
          *
          *
          * @param conn The connection to use for the batch call.
@@ -386,7 +386,7 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
          * @param sql The SQL statement to execute.
          * @param params An array of query replacement parameters.  Each row in
          *        this array is one set of batch replacement values.
-         */
+         *//*
         public UpdateCallableStatement(Connection conn, boolean closeConn, PreparedStatement ps, String sql, Object... params) {
             this.sql = sql;
             this.params = params;
@@ -395,14 +395,14 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
             this.ps = ps;
         }
 
-        /**
+        *//**
          * The actual call to {@code executeUpdate()} method.
          *
          * @return either (1) the row count for SQL Data Manipulation Language (DML) statements or
          *                (2) 0 for SQL statements that return nothing
          * @throws SQLException if a database access error occurs.
          * @see PreparedStatement#executeUpdate()
-         */
+         *//*
         @Override
         public Integer call() throws SQLException {
             int rows = 0;
@@ -421,7 +421,7 @@ public class AsyncQueryRunner extends AbstractQueryRunner {
             return Integer.valueOf(rows);
         }
 
-    }
+    }*/
 
     /**
      * Execute an SQL INSERT, UPDATE, or DELETE query without replacement

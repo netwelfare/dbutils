@@ -69,7 +69,7 @@ public class ProxyFactory {
 	 *            The handler that intercepts/overrides method calls.
 	 * @return proxied object 代理是抛弃了对象的概念吗？随意生成了一个类呢？
 	 */
-	public <T> T newProxyInstance(Class<T> type, InvocationHandler handler) {// 祈祷，这是一个接口
+	public <T> T newProxyInstance(Class<T> type, InvocationHandler handler) {
 		return type.cast(
 				Proxy.newProxyInstance(handler.getClass().getClassLoader(),
 						new Class<?>[]{type}, handler));
