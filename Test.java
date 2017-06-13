@@ -44,8 +44,6 @@ public class Test {
          new Class<?>[]{Reader.class}, new MyHandler());
 	 reader.read();*/
 	  
-	  DbUtils  db = new DbUtils();
-	  db.close(null);
 	  
 	}
 
